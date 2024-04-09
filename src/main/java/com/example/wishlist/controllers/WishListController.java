@@ -15,7 +15,7 @@ public class WishListController {
     @Autowired
     private WishListService wishlistService;
 
-    @GetMapping("")
+    @GetMapping("/showWishlist")
     public String showWishlist(Model model) {
         model.addAttribute("wishes", wishlistService.getAllWishes());
         return "wishlist/index";
@@ -61,7 +61,7 @@ public class WishListController {
         wishlistService.markAsBought(id);
         return "redirect:/wishlist";
     }*/
-    @GetMapping("")
+    @GetMapping("/getwishes")
     public String getWishes(Model model) {
         List<Wish> wishes = wishlistService.getAllWishes();
         model.addAttribute("wishes", wishes);
