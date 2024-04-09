@@ -1,4 +1,5 @@
 package com.example.wishlist.repository;
+import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -12,34 +13,58 @@ import java.util.List;
 public class WishRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
-    public Wishlist getWish(Long id) {
-        String query = "SELECT * FROM wishes WHERE id = ?";
-        RowMapper<Wishlist> rowMapper = new BeanPropertyRowMapper<>(Wishlist.class);
-        return jdbcTemplate.queryForObject(query, rowMapper, id);
+    public List<Wish> getAllWishes(int id) {
+        String query = "SELECT * FROM wishlist;";
+        RowMapper rowMapper = new BeanPropertyRowMapper(Wish.class);
+        return jdbcTemplate.query(query, rowMapper);
     }
 
-    public List<Wishlist> getWishes() {
-        String query = "SELECT * FROM wishes";
-        RowMapper<Wishlist> rowMapper = new BeanPropertyRowMapper<>(Wishlist.class);
+    public List<Wish> getAllWishes() {
+        String query = "SELECT * FROM wish";
+        RowMapper<Wish> rowMapper = new BeanPropertyRowMapper<>(Wish.class);
         return jdbcTemplate.query(query, rowMapper);
     }
 
     public void delete(Long id) {
-        String query = "DELETE FROM wishes WHERE id=?";
+        String query = "DELETE FROM wish WHERE id=?";
         jdbcTemplate.update(query, id);
     }
 
     public void insert(String text, boolean isBought) {
-        String query = "INSERT INTO wishes (text, is_bought) VALUES (?, ?)";
+        String query = "INSERT INTO wish (text, is_bought) VALUES (?, ?)";
         jdbcTemplate.update(query, text, isBought);
     }
 
     public void update(Long id, String text, boolean isBought) {
-        String query = "UPDATE wishes " +
+        String query = "UPDATE wish " +
                 "SET text = ?," +
                 " is_bought = ?" +
                 " WHERE id = ?";
         jdbcTemplate.update(query, text, isBought, id);
     }
 
+    public Wish getWish(int id) {
+        String query = "SELECT * FROM wish WHERE id = ?;";
+        RowMapper<Wish> rowMapper = new BeanPropertyRowMapper<>(Wish.class);
+        return jdbcTemplate.queryForObject(query, rowMapper, id);
+    }
+
+    public void deleteWish(int id) {
+        String query = "DELETE FROM wish Where id = ?";
+        jdbcTemplate.update(query, id);
+    }
+
+    public void createWish(String text, boolean isBought) {
+        String query = "INSERT INTO wish(text, isBought)" +
+                "VALUES (?, ?);";
+        jdbcTemplate.update(query, text, isBought);
+    }
+
+    public void updateWish(int id, String text, boolean isBought) {
+        String query = "UPDATE wish " +
+                "SET text = ?," +
+                "isBought = ?," +
+                "WHERE id = ?;";
+        jdbcTemplate.update(query,text, isBought,id);
+    }
 }

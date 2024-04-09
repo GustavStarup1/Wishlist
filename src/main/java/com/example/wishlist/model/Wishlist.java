@@ -1,43 +1,20 @@
 package com.example.wishlist.model;
 
+import java.util.ArrayList;
+
 public class Wishlist {
-        private Long id;
-        private String text;
-        private boolean isBought;
+private ArrayList<Wish> wishes;
 
-    public Wishlist(Long id, String text, boolean isBought) {
-        this.id = id;
-        this.text = text;
-        this.isBought = isBought;
+    public Wishlist(ArrayList<Wish> wishes) {
+        wishes= new ArrayList<>();
     }
 
-    public Wishlist(){
-
+    public ArrayList<Wish> getWishes() {
+        return wishes;
     }
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public boolean isBought() {
-        return isBought;
-    }
-
-    public void setBought(boolean bought) {
-        isBought = bought;
+    public void setWishes(ArrayList<Wish> wishes) {
+        this.wishes = wishes;
     }
 }
 

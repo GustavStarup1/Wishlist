@@ -17,7 +17,7 @@ public class WishListController {
 
     @GetMapping("")
     public String showWishlist(Model model) {
-        model.addAttribute("wishes", wishlistService.getWishes());
+        model.addAttribute("wishes", wishlistService.getAllWishes());
         return "wishlist/index";
     }
 
@@ -39,8 +39,8 @@ public class WishListController {
     }
 
     @PostMapping("/new")
-    public String create(@RequestParam("text") String text) {
-        wishlistService.create(text);
+    public String create(@RequestParam("text") String text, boolean isBought) {
+        wishlistService.create(text, isBought);
         return "redirect:/wishlist";
     }
 
@@ -51,22 +51,21 @@ public class WishListController {
     }
 
     @PostMapping("/update/{id}")
-    public String update(@PathVariable("id") int id, @RequestParam("text") String newText) {
-        wishlistService.update(id, newText);
+    public String update(@PathVariable("id") int id, @RequestParam("text") String text, @RequestParam("isBought") boolean isBought) {
+        wishlistService.update(id, text, isBought);
         return "redirect:/wishlist";
     }
 
-    @GetMapping("/markAsBought/{id}")
+    /*@GetMapping("/markAsBought/{id}")
     public String markAsBought(@PathVariable("id") int id) {
         wishlistService.markAsBought(id);
         return "redirect:/wishlist";
-    }
+    }*/
     @GetMapping("")
     public String getWishes(Model model) {
         List<Wish> wishes = wishlistService.getAllWishes();
         model.addAttribute("wishes", wishes);
         return "wishlist";
     }
-
 }
 

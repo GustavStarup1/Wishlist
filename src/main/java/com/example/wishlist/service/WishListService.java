@@ -13,11 +13,11 @@ public class WishListService {
     @Autowired
     private WishRepository wishRepository;
 
-    public List<Wish> getWishes() {
+   public List<Wish> getAllWishes() {
         return wishRepository.getAllWishes();
     }
 
-    public Wishlist getWish(int id) {
+    public Wish getWish(int id) {
         return wishRepository.getWish(id);
     }
 
@@ -25,17 +25,12 @@ public class WishListService {
         wishRepository.deleteWish(id);
     }
 
-    public void create(String text) {
-        wishRepository.createWish(text);
+    public void create(String text, boolean isBought) {
+        wishRepository.createWish(text, isBought);
     }
 
-    public void update(int id, String newText) {
-        wishRepository.updateWishText(id, newText);
+    public void update(int id, String text, boolean isBought) {
+        wishRepository.updateWish(id, text, isBought);
     }
-
-    public void markAsBought(int id) {
-        wishRepository.markWishAsBought(id);
-    }
-
 }
 

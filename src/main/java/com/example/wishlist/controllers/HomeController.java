@@ -16,9 +16,8 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model) {
-        List<Wish> wishes = wishlistService.getWishes();
+        List<Wish> wishes = wishlistService.getAllWishes();
         model.addAttribute("wishes", wishes);
-        return "wishlist";
-
+        return "home/wishlist";
     }
 }
