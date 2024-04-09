@@ -26,45 +26,45 @@ public class WishRepository {
     }
 
     public void delete(Long id) {
-        String query = "DELETE FROM wish WHERE id=?";
+        String query = "DELETE FROM wish WHERE wish_id=?";
         jdbcTemplate.update(query, id);
     }
 
     public void insert(String text, boolean isBought) {
-        String query = "INSERT INTO wish (text, is_bought) VALUES (?, ?)";
+        String query = "INSERT INTO wish (wish_text, is_bought) VALUES (?, ?)";
         jdbcTemplate.update(query, text, isBought);
     }
 
     public void update(Long id, String text, boolean isBought) {
         String query = "UPDATE wish " +
-                "SET text = ?," +
+                "SET wish_text = ?," +
                 " is_bought = ?" +
-                " WHERE id = ?";
+                " WHERE wish_id = ?";
         jdbcTemplate.update(query, text, isBought, id);
     }
 
     public Wish getWish(int id) {
-        String query = "SELECT * FROM wish WHERE id = ?;";
+        String query = "SELECT * FROM wish WHERE wish_id = ?;";
         RowMapper<Wish> rowMapper = new BeanPropertyRowMapper<>(Wish.class);
         return jdbcTemplate.queryForObject(query, rowMapper, id);
     }
 
     public void deleteWish(int id) {
-        String query = "DELETE FROM wish Where id = ?";
+        String query = "DELETE FROM wish Where wish_id = ?";
         jdbcTemplate.update(query, id);
     }
 
     public void createWish(String text, boolean isBought) {
-        String query = "INSERT INTO wish(text, isBought)" +
+        String query = "INSERT INTO wish(wish_text, is_bought)" +
                 "VALUES (?, ?);";
         jdbcTemplate.update(query, text, isBought);
     }
 
     public void updateWish(int id, String text, boolean isBought) {
         String query = "UPDATE wish " +
-                "SET text = ?," +
-                "isBought = ?," +
-                "WHERE id = ?;";
+                "SET wish_text = ?," +
+                "is_bought = ?" +
+                "WHERE wish_id = ?;";
         jdbcTemplate.update(query,text, isBought,id);
     }
 }
