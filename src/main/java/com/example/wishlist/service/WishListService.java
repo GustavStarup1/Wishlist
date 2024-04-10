@@ -1,7 +1,6 @@
 package com.example.wishlist.service;
-import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
-import com.example.wishlist.repository.WishRepository;
+import com.example.wishlist.repository.WishListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,26 +10,31 @@ import java.util.List;
 public class WishListService {
 
     @Autowired
-    private WishRepository wishRepository;
+    private WishListRepository wishlistRepository;
 
-   public List<Wish> getAllWishes() {
-        return wishRepository.getAllWishes();
+   public List<Wishlist> getAllWishes() {
+        return wishlistRepository.getAllWishes();
     }
 
-    public Wish getWish(int id) {
-        return wishRepository.getWish(id);
+    public Wishlist getWish(int id) {
+        return wishlistRepository.getWishlist(id);
     }
 
-    public void delete(int id) {
-        wishRepository.deleteWish(id);
+    public void deleteWishlist(int id) {
+        wishlistRepository.deleteWishlist(id);
     }
 
-    public void create(String text, boolean isBought) {
-        wishRepository.createWish(text, isBought);
+    public void create(String text) {
+        wishlistRepository.createWishlist(text);
     }
 
-    public void update(int id, String text, boolean isBought) {
-        wishRepository.updateWish(id, text, isBought);
+    public void update(String name) {
+        wishlistRepository.updateWishlist(name);
     }
+
+    public Object prepareUpdate(int id) {
+       return wishlistRepository.getWishlist(id);
+    }
+
 }
 

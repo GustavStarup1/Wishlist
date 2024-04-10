@@ -1,5 +1,5 @@
 package com.example.wishlist.controllers;
-import com.example.wishlist.model.Wish;
+import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.service.WishListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +29,7 @@ public class WishListController {
 
     @PostMapping("/delete/{id}")
     public String delete(@PathVariable("id") int id) {
-        wishlistService.delete(id);
+        wishlistService.deleteWishlist(id);
         return "redirect:/wishlist";
     }
 
@@ -39,33 +39,30 @@ public class WishListController {
     }
 
     @PostMapping("/new")
-    public String create(@RequestParam("text") String text, boolean isBought) {
-        wishlistService.create(text, isBought);
+    public String create(@RequestParam("text") String text) {
+        wishlistService.create(text);
         return "redirect:/wishlist";
     }
 
-    @GetMapping("/update/{id}")
-    public String showUpdateForm(@PathVariable("id") int id, Model model) {
-        model.addAttribute("wish", wishlistService.getWish(id));
+
+    @PostMapping("/update/{id}")
+    public String update(@PathVariable("name") String name){
+        wishlistService.update(name);
+        return "redirect:/wishlist";
+    }
+
+    @GetMapping("/prepare_update")
+    public String prepareUpdate(@RequestParam int id, Model model) {
+        model.addAttribute(wishlistService.prepareUpdate(id));
         return "wishlist/update";
     }
 
-    @PostMapping("/update/{id}")
-    public String update(@PathVariable("id") int id, @RequestParam("text") String text, @RequestParam("isBought") boolean isBought) {
-        wishlistService.update(id, text, isBought);
-        return "redirect:/wishlist";
-    }
 
-    /*@GetMapping("/markAsBought/{id}")
-    public String markAsBought(@PathVariable("id") int id) {
-        wishlistService.markAsBought(id);
-        return "redirect:/wishlist";
-    }*/
     @GetMapping("/getwishes")
     public String getWishes(Model model) {
-        List<Wish> wishes = wishlistService.getAllWishes();
+        List<Wishlist> wishes = wishlistService.getAllWishes();
         model.addAttribute("wishes", wishes);
-        return "wishlist";
+        return "/wishlist";
     }
 }
 

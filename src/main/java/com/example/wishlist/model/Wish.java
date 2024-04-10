@@ -13,8 +13,6 @@ package com.example.wishlist.model;
             this.isBought = isBought;
         }
 
-
-
         public int getId() {
             return id;
         }
