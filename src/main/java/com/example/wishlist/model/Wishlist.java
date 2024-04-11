@@ -9,9 +9,6 @@ private List<Wish> wishes;
     public Wishlist() {
     }
 
-    public Wishlist(List<Wish> wishes) {
-        wishes = new ArrayList<>();
-    }
     public List<Wish> getWishes() {
         return wishes;
     }

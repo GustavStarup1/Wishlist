@@ -1,4 +1,5 @@
 package com.example.wishlist.repository;
+import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -8,15 +9,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 @Repository
 public class WishListRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
 
-    public List<Wishlist> getAllWishes() {
+    public List<Wish> getAllWishes() {
         String query = "SELECT * FROM wish";
-        RowMapper<Wishlist> rowMapper = new BeanPropertyRowMapper<>(Wishlist.class);
+        RowMapper<Wish> rowMapper = new BeanPropertyRowMapper<>(Wish.class);
         return jdbcTemplate.query(query, rowMapper);
     }
 

@@ -1,4 +1,5 @@
 package com.example.wishlist.controllers;
+import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.service.UserService;
 import com.example.wishlist.service.WishListService;
@@ -25,7 +26,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model) {
-        List<Wishlist> wishes = wishlistService.getAllWishes();
+        List<Wish> wishes = wishlistService.getAllWishes();
         model.addAttribute("wishes", wishes);
         return "home/wishlist";
     }

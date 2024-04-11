@@ -8,6 +8,8 @@ package com.example.wishlist.model;
         private boolean isBought;
         private String isReserved;
 
+        public Wish() {
+        }
 
         public Wish(int id, String name, String text, boolean isBought, String isReserved) {
             this.id = id;

@@ -1,4 +1,5 @@
 package com.example.wishlist.service;
+import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.repository.WishListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ public class WishListService {
     @Autowired
     private WishListRepository wishlistRepository;
 
-   public List<Wishlist> getAllWishes() {
+   public List<Wish> getAllWishes() {
         return wishlistRepository.getAllWishes();
     }
 
