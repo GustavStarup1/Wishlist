@@ -15,10 +15,10 @@ public class WishListController {
     @Autowired
     private WishListService wishlistService;
 
-    @GetMapping("/showWishlist")
+    @GetMapping("/show_wishlist")
     public String showWishlist(Model model) {
         model.addAttribute("wishes", wishlistService.getAllWishes());
-        return "wishlist/index";
+        return "index/show_wishlist";
     }
 
     @GetMapping("/delete/{id}")

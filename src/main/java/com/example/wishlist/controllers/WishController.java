@@ -26,7 +26,7 @@ public class WishController {
     }
     @GetMapping("/new")
     public String insert() {
-        return "wishlist/new";
+        return "index/new";
     }
     @PostMapping("/insert")
     public String insert(@RequestParam int wishlistId, @RequestParam String name, @RequestParam String wishText, @RequestParam double price, @RequestParam String link, @RequestParam boolean isBought, @RequestParam String isReservedByUserId) {
@@ -36,7 +36,7 @@ public class WishController {
     @GetMapping("/Prepare_update")
     public String prepareWish(@RequestParam int id, Model model){
         model.addAttribute(wishService.prepareWish(id));
-        return "wishlist/update";
+        return "index/update";
     }
     @PostMapping("/update")
     public String update(@RequestParam int id, @RequestParam boolean isBought, @RequestParam String text ) {
