@@ -15,16 +15,18 @@ public class WishListController {
     @Autowired
     private WishListService wishlistService;
 
-    @GetMapping("/show_wishlist")
+
+    @GetMapping("/wishlist")
     public String showWishlist(Model model) {
-        model.addAttribute("wishes", wishlistService.getAllWishes());
-        return "index/show_wishlist";
+        List<Wish> wishes = wishlistService.getAllWishes();
+        model.addAttribute("wishes", wishes);
+        return "home/wishlist";
     }
 
     @GetMapping("/delete/{id}")
     public String confirmDelete(@PathVariable("id") int id, Model model) {
         model.addAttribute("wish", wishlistService.getWish(id));
-        return "index/confirm_delete";
+        return "home/confirm_delete";
     }
 
     @PostMapping("/delete/{id}")
@@ -35,7 +37,7 @@ public class WishListController {
 
     @GetMapping("/new")
     public String showCreateForm() {
-        return "index/new";
+        return "home/new";
     }
 
     @PostMapping("/new")
@@ -45,16 +47,16 @@ public class WishListController {
     }
 
 
-    @PostMapping("/update/{id}")
+    /* @PostMapping("/update/{id}")
     public String update(@PathVariable("name") String name){
         wishlistService.update(name);
         return "redirect:/index";
-    }
+    }*/
 
     @GetMapping("/prepare_update")
     public String prepareUpdate(@RequestParam int id, Model model) {
         model.addAttribute(wishlistService.prepareUpdate(id));
-        return "index/update";
+        return "home/update";
     }
 }
 
