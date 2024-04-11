@@ -18,7 +18,7 @@ public class WishListRepository {
 
     public List<Wish> getAllWishes() {
         String query = "SELECT * FROM wish";
-        RowMapper<Wish> rowMapper = new BeanPropertyRowMapper<>(Wish.class);
+        RowMapper rowMapper = new BeanPropertyRowMapper(Wish.class);
         return jdbcTemplate.query(query, rowMapper);
     }
 

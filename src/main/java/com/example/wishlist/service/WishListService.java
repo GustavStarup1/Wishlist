@@ -11,7 +11,7 @@ import java.util.List;
 public class WishListService {
 
     @Autowired
-    private WishListRepository wishlistRepository;
+    WishListRepository wishlistRepository;
 
    public List<Wish> getAllWishes() {
         return wishlistRepository.getAllWishes();

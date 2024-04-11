@@ -27,14 +27,6 @@ package com.example.wishlist.model;
             this.id = id;
         }
 
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
         public String getText() {
             return text;
         }
@@ -51,12 +43,31 @@ package com.example.wishlist.model;
             isBought = bought;
         }
 
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
         public String getIsReservedByUserId() {
             return isReservedByUserId;
         }
 
         public void setIsReservedByUserId(String isReservedByUserId) {
             this.isReservedByUserId = isReservedByUserId;
+        }
+
+        @Override
+        public String toString() {
+            return "Wish{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    ", text='" + text + '\'' +
+                    ", isBought=" + isBought +
+                    ", isReservedByUserId='" + isReservedByUserId + '\'' +
+                    '}';
         }
     }
 

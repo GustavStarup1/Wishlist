@@ -1,48 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ønskeseddel Applikation</title>
+    <title>All the wishes</title>
 </head>
 <body>
-<header>
-    <h1>Min Ønskeseddel</h1>
-    <nav>
-        <ul th:each="wish : ${wishes}">
-            <li>
-                <span th:text="${wish.name}"></span>
-                <span th:text="${wish.text}"></span>
-            </li>
+<h1>All the wishes</h1>
 
-        </ul>
-        <li><a th:href="@{/}">Forside</a></li>
-        <li><a th:href="@{/wishlist}">Min Ønskeseddel</a></li>
-        <li><a th:href="@{/create-wish}">Opret Ønske</a></li>
-        <li><a th:href="@{/edit-wish}">Rediger Ønske</a></li>
-        <li><a th:href="@{/share-wishlist}">Del Ønskeseddel</a></li>
-        <li><a th:href="@{/search-wishlist}">Søg i Ønskeseddel</a></li>
-        <li><a th:href="@{/logout}">Log ud</a></li>
-    </nav>
-</header>
+<ul th:each="wish : ${wishes}">
+    <li>
+        <span th:text="${wish}"></span>
+    </li>
 
-<main>
-    <ul>
-        <li>Ønske 1</li>
-        <li>Ønske 2</li>
-        <li>Ønske 3</li>
-        <li>Ønske 4</li>
-        <li>Ønske 5</li>
-        <li>Ønske 6</li>
-
-
-    </ul>
-
-</main>
-
-<footer>
-
-</footer>
-
+</ul>
 </body>
 </html>
