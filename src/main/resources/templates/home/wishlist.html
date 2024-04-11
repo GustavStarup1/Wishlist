@@ -11,6 +11,7 @@
     <nav>
         <ul th:each="wish : ${wishes}">
             <li>
+                <span th:text="${wish.name}"></span>
                 <span th:text="${wish.text}"></span>
             </li>
 
@@ -22,8 +23,6 @@
         <li><a th:href="@{/share-wishlist}">Del Ønskeseddel</a></li>
         <li><a th:href="@{/search-wishlist}">Søg i Ønskeseddel</a></li>
         <li><a th:href="@{/logout}">Log ud</a></li>
-
-
     </nav>
 </header>
 

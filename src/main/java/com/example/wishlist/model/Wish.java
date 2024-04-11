@@ -6,17 +6,17 @@ package com.example.wishlist.model;
         private String name;
         private String text;
         private boolean isBought;
-        private String isReserved;
+        private String isReservedByUserId;
 
         public Wish() {
         }
 
-        public Wish(int id, String name, String text, boolean isBought, String isReserved) {
+        public Wish(int id, String name, String text, boolean isBought, String isReservedByUserId) {
             this.id = id;
             this.name = name;
             this.text = text;
             this.isBought = isBought;
-            this.isReserved = isReserved;
+            this.isReservedByUserId = isReservedByUserId;
         }
 
         public int getId() {
@@ -25,6 +25,14 @@ package com.example.wishlist.model;
 
         public void setId(int id) {
             this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
 
         public String getText() {
@@ -43,20 +51,12 @@ package com.example.wishlist.model;
             isBought = bought;
         }
 
-        public String getName() {
-            return name;
+        public String getIsReservedByUserId() {
+            return isReservedByUserId;
         }
 
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getIsReserved() {
-            return isReserved;
-        }
-
-        public void setIsReserved(String isReserved) {
-            this.isReserved = isReserved;
+        public void setIsReservedByUserId(String isReservedByUserId) {
+            this.isReservedByUserId = isReservedByUserId;
         }
     }
 

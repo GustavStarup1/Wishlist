@@ -55,7 +55,7 @@ public class WishListController {
     @GetMapping("/prepare_update")
     public String prepareUpdate(@RequestParam int id, Model model) {
         model.addAttribute(wishlistService.prepareUpdate(id));
-        return "wishlist/update";
+        return "home/update";
     }
 
 
