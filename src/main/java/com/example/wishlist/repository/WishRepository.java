@@ -40,7 +40,7 @@ public class WishRepository {
     }
 
     public void markAsBought(int id) {
-        String query = "UPDATE wish" + "SET is_bought" + "WHERE wish_id =?;";
+        String query = "UPDATE wish SET is_bought = ? WHERE wish_id = ?;";
         jdbcTemplate.update(query, id);
     }
 }

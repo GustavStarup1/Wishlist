@@ -3,14 +3,18 @@ package com.example.wishlist.model;
 
     public class Wish {
         private int id;
+        private String name;
         private String text;
         private boolean isBought;
+        private String isReserved;
 
 
-        public Wish(int id, String text, boolean isBought) {
+        public Wish(int id, String name, String text, boolean isBought, String isReserved) {
             this.id = id;
+            this.name = name;
             this.text = text;
             this.isBought = isBought;
+            this.isReserved = isReserved;
         }
 
         public int getId() {
@@ -35,6 +39,22 @@ package com.example.wishlist.model;
 
         public void setBought(boolean bought) {
             isBought = bought;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getIsReserved() {
+            return isReserved;
+        }
+
+        public void setIsReserved(String isReserved) {
+            this.isReserved = isReserved;
         }
     }
 

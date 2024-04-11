@@ -10,8 +10,8 @@
     <h1>Min Ønskeseddel</h1>
     <nav>
         <ul>
-            <li th:each="wish : ${wishlist.wishes}">
-                <span th:text="${wish.text}"></span>
+            <li th:each="wish : ${wishes}">
+                <span th:text="${wish.}"></span>
             </li>
 
             <li><a th:href="@{/}">Forside</a></li>
@@ -22,6 +22,15 @@
             <li><a th:href="@{/search-wishlist}">Søg i Ønskeseddel</a></li>
             <li><a th:href="@{/logout}">Log ud</a></li>
         </ul>
+
+        <tr th:each="movie : ${movies}"> <!--hvad er $?-->
+            <td th:text="${movie.id}"></td>
+            <td th:text="${movie.title}"></td>
+            <td th:text="${movie.releaseYear}"></td>
+            <td th:text="${movie.description}"></td>
+            <td th:text="${movie.tags}"></td>
+            <td>
+
 
     </nav>
 </header>

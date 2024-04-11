@@ -1,5 +1,6 @@
 package com.example.wishlist.controllers;
 import com.example.wishlist.model.Wishlist;
+import com.example.wishlist.service.UserService;
 import com.example.wishlist.service.WishListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -14,6 +15,13 @@ public class HomeController {
 
     @Autowired
     private WishListService wishlistService;
+    private UserService userService;
+
+    /*@GetMapping("/")
+    public String login(Model model) {
+        model.addAttribute("user", userService);
+        return "home/login";
+    }*/
 
     @GetMapping("/")
     public String index(Model model) {
