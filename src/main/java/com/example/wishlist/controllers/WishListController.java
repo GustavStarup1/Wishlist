@@ -56,13 +56,5 @@ public class WishListController {
         model.addAttribute(wishlistService.prepareUpdate(id));
         return "index/update";
     }
-
-
-    @GetMapping("/getwishes")
-    public String getWishes(Model model) {
-        List<Wish> wishes = wishlistService.getAllWishes();
-        model.addAttribute("wishes", wishes);
-        return "home/index";
-    }
 }
 

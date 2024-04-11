@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All the wishes</title>
+</head>
+<body>
+<h1>All the wishes</h1>
+
+<ul th:each="wish : ${wishes}">
+    <li>
+        <span th:text="${wish}"></span>
+    </li>
+
+</ul>
+</body>
+</html>

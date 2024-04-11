@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,8 @@
 <body>
 <header>
     <h1>Min Ønskeseddel</h1>
+
     <nav>
-        <ul th:each="wish : ${wishes}">
-            <li>
-                <span th:text="${wish}"></span>
-            </li>
 
         </ul>
         <li><a th:href="@{/}">Forside</a></li>
@@ -23,8 +20,9 @@
         <li><a th:href="@{/search-wishlist}">Søg i Ønskeseddel</a></li>
         <li><a th:href="@{/logout}">Log ud</a></li>
 
-
     </nav>
+
+
 </header>
 
 <main>
