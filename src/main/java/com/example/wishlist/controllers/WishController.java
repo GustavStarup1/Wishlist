@@ -16,7 +16,7 @@ public class WishController {
     @GetMapping("/confirm_delete")
     public String confirmDelete(@RequestParam int id, Model model){
         model.addAttribute(wishService.getWish(id));
-        return "wishlist/confirm_delete";
+        return "index/confirm_delete";
     }
 
     @PostMapping("/delete")
@@ -46,7 +46,7 @@ public class WishController {
     @GetMapping("/markAsBought/{id}")
     public String markAsBought(@PathVariable("id") int id) {
         wishService.markAsBought(id);
-        return "redirect:/wishlist";
+        return "redirect:/index";
     }
 
 

@@ -16,5 +16,11 @@ private List<Wish> wishes;
         this.wishes = wishes;
     }
 
+    @Override
+    public String toString() {
+        return "Wishlist{" +
+                "wishes=" + wishes +
+                '}';
+    }
 }
 

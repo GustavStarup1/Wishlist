@@ -1,5 +1,4 @@
 package com.example.wishlist.controllers;
-import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.service.WishListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,37 +24,37 @@ public class WishListController {
     @GetMapping("/delete/{id}")
     public String confirmDelete(@PathVariable("id") int id, Model model) {
         model.addAttribute("wish", wishlistService.getWish(id));
-        return "wishlist/confirm_delete";
+        return "index/confirm_delete";
     }
 
     @PostMapping("/delete/{id}")
     public String delete(@PathVariable("id") int id) {
         wishlistService.deleteWishlist(id);
-        return "redirect:/wishlist";
+        return "redirect:/index";
     }
 
     @GetMapping("/new")
     public String showCreateForm() {
-        return "wishlist/new";
+        return "index/new";
     }
 
     @PostMapping("/new")
     public String create(@RequestParam("text") String text) {
         wishlistService.create(text);
-        return "redirect:/wishlist";
+        return "redirect:/index";
     }
 
 
     @PostMapping("/update/{id}")
     public String update(@PathVariable("name") String name){
         wishlistService.update(name);
-        return "redirect:/wishlist";
+        return "redirect:/index";
     }
 
     @GetMapping("/prepare_update")
     public String prepareUpdate(@RequestParam int id, Model model) {
         model.addAttribute(wishlistService.prepareUpdate(id));
-        return "wishlist/update";
+        return "index/update";
     }
 
 
@@ -63,7 +62,7 @@ public class WishListController {
     public String getWishes(Model model) {
         List<Wish> wishes = wishlistService.getAllWishes();
         model.addAttribute("wishes", wishes);
-        return "home/wishlist";
+        return "home/index";
     }
 }
 

@@ -28,7 +28,7 @@ public class HomeController {
     public String index(Model model) {
         List<Wish> wishes = wishlistService.getAllWishes();
         model.addAttribute("wishes", wishes);
-        return "home/wishlist";
+        return "home/index";
     }
 
     public static void main(String[] args) {
