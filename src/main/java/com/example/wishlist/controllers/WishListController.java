@@ -15,8 +15,8 @@ public class WishListController {
     @Autowired
     private WishListService wishlistService;
 
-
-    @GetMapping("/wishlist")
+// shows wishes in wishlist
+    @GetMapping("/show")
     public String showWishlist(Model model) {
         List<Wish> wishes = wishlistService.getAllWishes();
         model.addAttribute("wishes", wishes);
