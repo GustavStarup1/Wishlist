@@ -13,8 +13,8 @@ public class WishRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
     public void createWish(int wishlistId, String name, String wishText, double price, String link) {
-        String query = "INSERT INTO wish(wishlist_id, name, text, price, link,is_bought,is_reserved_by_user_id)" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?);";
+        String query = "INSERT INTO wish(wishlist_id, name, text, price, link)" +
+                "VALUES (?, ?, ?, ?, ?);";
         jdbcTemplate.update(query, wishlistId, name, wishText,price, link);
     }
     public Wish getWish(int id) {
