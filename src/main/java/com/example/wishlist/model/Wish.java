@@ -3,8 +3,11 @@ package com.example.wishlist.model;
 
     public class Wish {
         private int id;
+        private int wishlistId;
         private String name;
         private String text;
+        private double price;
+        private String link;
         private boolean isBought;
         private String isReservedByUserId;
 
@@ -57,6 +60,30 @@ package com.example.wishlist.model;
 
         public void setIsReservedByUserId(String isReservedByUserId) {
             this.isReservedByUserId = isReservedByUserId;
+        }
+
+        public double getPrice() {
+            return price;
+        }
+
+        public void setPrice(double price) {
+            this.price = price;
+        }
+
+        public String getLink() {
+            return link;
+        }
+
+        public void setLink(String link) {
+            this.link = link;
+        }
+
+        public int getWishlistId() {
+            return wishlistId;
+        }
+
+        public void setWishlistId(int wishlistId) {
+            this.wishlistId = wishlistId;
         }
 
         @Override

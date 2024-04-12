@@ -2,16 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>All the wishes</title>
+    <title>Wishlist</title>
 </head>
 <body>
-<h1>All the wishes</h1>
-
-<ul th:each="wish : ${wishes}">
-    <li>
-        <span th:text="${wish}"></span>
-    </li>
-
-</ul>
+<div th:insert="~{home/fragments/navbar::navbar}"></div>
+<h1>Dine ønsker</h1>
+<table>
+    <tr>
+        <th>Navn</th> <th>Beskrivelse</th> <th>pris</th> <th>link</th> <th>Reserveret</th> <th>Købt</th>
+    </tr>
+    <tr th:each="wish : ${wishes}">
+        <td th:text="${wish.name}"></td>
+        <td th:text="${wish.text}"></td>
+        <td th:text="${wish.price}"></td>
+        <td th:text="${wish.link}"></td>
+        <td th:text="${wish.isReservedByUserId}"></td>
+        <td th:text="${wish.isBought()}"></td>
+    </tr>
+</table>
+<a th:href="@{/new_wish}">
+    <button type="button">Nyt ønske</button>
+</a>
 </body>
 </html>

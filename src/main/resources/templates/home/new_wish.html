@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Wish</title>
+</head>
+<body>
+<h1>Create wish</h1>
+<form action="/insert" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div>
+        <label for="text">Text:</label>
+        <input type="text" name="text" id="text">
+    </div>
+    <div>
+        <label for="price">Price:</label>
+        <input type="text" name="price" id="price">
+    </div>
+    <div>
+        <label for="link">Link:</label>
+        <input type="text" name="link" id="link">
+    </div>
+<!--
+    <input type="hidden" name="wishlistId" th:value="${wish.wishlistId}">
+-->
+</form>
+</body>
+</html>

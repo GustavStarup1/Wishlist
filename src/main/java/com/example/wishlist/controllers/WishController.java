@@ -1,18 +1,19 @@
 package com.example.wishlist.controllers;
+import com.example.wishlist.model.Wish;
+import com.example.wishlist.service.WishListService;
 import com.example.wishlist.service.WishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class WishController {
     @Autowired
-
     private WishService wishService;
+    @Autowired
+    private WishListService wishListService;
+
     @GetMapping("/confirm_delete")
     public String confirmDelete(@RequestParam int id, Model model){
         model.addAttribute(wishService.getWish(id));
@@ -24,11 +25,16 @@ public class WishController {
         wishService.delete(id);
         return "redirect:/";
     }
+    @GetMapping("/new_wish")
+    public String insert() {
+        return "home/new_wish";
+    }
+
     @PostMapping("/insert")
-    public String insert(@RequestParam int wishlistId, @RequestParam String name, @RequestParam String wishText, @RequestParam double price, @RequestParam String link, @RequestParam boolean isBought, @RequestParam String isReservedByUserId) {
-        wishService.createWish(wishlistId, name, wishText, price, link, isBought,isReservedByUserId);
+    public String insert(@RequestParam int wishlistId,@RequestParam String name, @RequestParam String text, @RequestParam double price, @RequestParam String link) {
         return "redirect:/";
     }
+
     @GetMapping("/Prepare_update")
     public String prepareWish(@RequestParam int id, Model model){
         model.addAttribute(wishService.prepareWish(id));

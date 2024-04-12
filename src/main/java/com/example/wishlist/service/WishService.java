@@ -4,6 +4,8 @@ import com.example.wishlist.repository.WishRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class WishService {
     @Autowired
@@ -17,8 +19,8 @@ public class WishService {
         wishRepository.delete(id);
     }
 
-    public void createWish(int wishlistId, String name, String wishText, double price, String link, boolean isBought, String isReservedByUserId) {
-        wishRepository.createWish(wishlistId, name, wishText, price, link, isBought, isReservedByUserId);
+    public void createWish(int wishlistId, String name, String wishText, double price, String link) {
+        wishRepository.createWish(wishlistId, name, wishText, price, link);
     }
 
     public void updateWish(int id, boolean isBought, String text){
@@ -32,4 +34,7 @@ public class WishService {
          wishRepository.markAsBought(id);
     }
 
+    public List<Wish> getWishesByWishListId(int id) {
+        return wishRepository.getWishesByWishlistId(id);
+    }
 }
