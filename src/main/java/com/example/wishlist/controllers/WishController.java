@@ -24,10 +24,6 @@ public class WishController {
         wishService.delete(id);
         return "redirect:/";
     }
-    @GetMapping("/new")
-    public String insert() {
-        return "home/new";
-    }
     @PostMapping("/insert")
     public String insert(@RequestParam int wishlistId, @RequestParam String name, @RequestParam String wishText, @RequestParam double price, @RequestParam String link, @RequestParam boolean isBought, @RequestParam String isReservedByUserId) {
         wishService.createWish(wishlistId, name, wishText, price, link, isBought,isReservedByUserId);

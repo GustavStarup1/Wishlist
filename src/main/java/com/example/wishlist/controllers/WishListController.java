@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -36,14 +37,13 @@ public class WishListController {
     }
 
     @GetMapping("/new")
-    public String showCreateForm() {
+    public String insert(){
         return "home/new";
     }
-
-    @PostMapping("/new")
-    public String create(@RequestParam("text") String text) {
-        wishlistService.create(text);
-        return "redirect:/index";
+    @PostMapping("/insert")
+    public String insert(@RequestParam String name ) {
+        wishlistService.create(name);
+        return "redirect:/";
     }
 
 

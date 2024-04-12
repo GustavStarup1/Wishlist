@@ -3,33 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ønskeseddel Applikation</title>
+    <title>Magical Wishlist</title>
+    <link rel="stylesheet" th:href="@{styles/style.css}">
+
 </head>
 <body>
 <header>
-    <h1>Min Ønskeseddel</h1>
-
-    <nav>
-
-        </ul>
-        <li><a th:href="@{/}">Forside</a></li>
-        <li><a th:href="@{/wishlist/show}">Min Ønskeseddel</a></li>
-        <li><a th:href="@{/create-wish}">Opret Ønske</a></li>
-        <li><a th:href="@{/edit-wish}">Rediger Ønske</a></li>
-        <li><a th:href="@{/share-wishlist}">Del Ønskeseddel</a></li>
-        <li><a th:href="@{/search-wishlist}">Søg i Ønskeseddel</a></li>
-        <li><a th:href="@{/logout}">Log ud</a></li>
-
-    </nav>
-
-
+    <h1>🌟 Magical Wishlist 🌟</h1>
+    <div th:insert="~{home/fragments/navbar::navbar}"></div>
 </header>
 
 <main>
+    <!-- Your magical content goes here -->
 </main>
 
 <footer>
-
+    &copy; 2024 Magical Wishlist. All rights reserved.
 </footer>
 
 </body>
