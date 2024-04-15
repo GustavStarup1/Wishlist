@@ -23,11 +23,8 @@ public class WishRepository {
         return jdbcTemplate.queryForObject(query, rowMapper, id);
     }
 
-    public void updateWish(int id, String text, boolean isBought) {
-        String query = "UPDATE wish " +
-                "SET text = ?," +
-                "is_bought = ?" +
-                "WHERE id = ?;";
+    public void updateWish(String text, boolean isBought, int id) {
+        String query = "UPDATE wish SET text = ?,  is_bought = ? WHERE id = ?;";
         jdbcTemplate.update(query,text, isBought,id);
     }
     public void delete(int id) {

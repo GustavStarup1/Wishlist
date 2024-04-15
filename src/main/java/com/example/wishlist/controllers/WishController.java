@@ -18,16 +18,18 @@ public class WishController {
     @GetMapping("/confirm_delete")
     public String confirmDelete(@RequestParam int id, Model model){
         model.addAttribute(wishService.getWish(id));
-        return "home/confirm_delete";
+        return "home/confirm_delete_wish";
     }
 
     @PostMapping("/delete")
     public String delete(@RequestParam ("id") int id) {
+        Wish wish = wishService.getWish(id);
+        int wishlistId = wish.getWishlistId();
         wishService.delete(id);
-        return "redirect:/";
+        return "redirect:/wishlist/" + wishlistId; /*sender tilbage til ønskelisten man sletter ønske fra*/
     }
 
-    @GetMapping("/wishlist/{id}/new_wish")
+    @GetMapping("/{id}/new_wish")
     public String newWish(@PathVariable("id") int wishlistId, Model model){ /*modtager id'et fra wishlists viewet og sætter ind i modellem*/
         Wish wish = new Wish();
         wish.setWishlistId(wishlistId);
@@ -38,18 +40,20 @@ public class WishController {
     @PostMapping("/insert")
     public String insert(@RequestParam int wishlistId,@RequestParam String name, @RequestParam String text, @RequestParam double price, @RequestParam String link) {
         wishService.createWish(wishlistId, name, text, price, link);
-        return "redirect:/";
+        return "redirect:/wishlist/" + wishlistId;
     }
 
     @GetMapping("/Prepare_update")
     public String prepareWish(@RequestParam int id, Model model){
         model.addAttribute(wishService.prepareWish(id));
-        return "home/update";
+        return "home/prepare_update";
     }
     @PostMapping("/update")
     public String update(@RequestParam int id, @RequestParam boolean isBought, @RequestParam String text ) {
+        Wish wish = wishService.getWish(id);
+        int wishlistId = wish.getWishlistId();
        wishService.updateWish(id, isBought, text);
-       return "redirect:/";
+       return "redirect:/wishlist/" + wishlistId;
     }
     @GetMapping("/markAsBought/{id}")
     public String markAsBought(@PathVariable("id") int id) {

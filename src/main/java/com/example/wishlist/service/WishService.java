@@ -24,7 +24,7 @@ public class WishService {
     }
 
     public void updateWish(int id, boolean isBought, String text){
-        wishRepository.updateWish(id, text, isBought);
+        wishRepository.updateWish(text, isBought, id);
     }
 
     public Wish prepareWish(int id) {
