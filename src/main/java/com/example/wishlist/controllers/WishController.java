@@ -18,13 +18,15 @@ public class WishController {
     @GetMapping("/confirm_delete")
     public String confirmDelete(@RequestParam int id, Model model){
         model.addAttribute(wishService.getWish(id));
-        return "home/confirm_delete";
+        return "home/confirm_delete_wish";
     }
 
     @PostMapping("/delete")
     public String delete(@RequestParam ("id") int id) {
+        Wish wish = wishService.getWish(id);
+        int wishlistId = wish.getWishlistId();
         wishService.delete(id);
-        return "redirect:/wishlist/wish/";
+        return "redirect:/wishlist/wish/" + wishlistId; /*sender tilbage til ønskelisten man sletter ønske fra*/
     }
 
     @GetMapping("/{id}/new_wish")

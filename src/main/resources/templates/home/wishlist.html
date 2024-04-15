@@ -9,7 +9,7 @@
 <h1>Your Wishes</h1>
 <table>
     <tr>
-        <th>Name</th> <th>Description</th> <th>Price</th> <th>Link</th> <th>Reserved</th> <th>Bought</th>
+        <th>Name</th> <th>Description</th> <th>Price</th> <th>Link</th> <th>Reserved</th> <th>Bought</th> <th>Delete</th>
     </tr>
     <tr th:each="wish : ${wishes}">
         <td th:text="${wish.name}"></td>
@@ -18,7 +18,15 @@
         <td th:text="${wish.link}"></td>
         <td th:text="${wish.isReservedByUserId}"></td>
         <td th:text="${wish.isBought()}"></td>
+        <td>
+            <form action="/confirm_delete" method="get">
+                <input type="hidden" name="id" th:value="${wish.id}">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
     </tr>
+
+
 </table>
 <a th:href="@{/wishlist/wish/{id}/new_wish(id=${wishlist.id})}">
     <button type="button">New wish</button>

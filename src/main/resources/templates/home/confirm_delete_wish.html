@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>ID</td><td th:text="${wish.id}"></td>
+    </tr>
+    <tr>
+        <td>Name</td><td th:text="${wish.name}"></td>
+    </tr>
+    <tr>
+        <td>Description</td><td th:text="${wish.text}"></td>
+    </tr>
+    <tr>
+        <td>Price</td><td th:text="${wish.price}"></td>
+    </tr>
+    <tr>
+        <td>Link</td><td th:text="${wish.link}"></td>
+    </tr>
+    <tr>
+        <td>isBought</td><td th:text="${wish.bought}"></td>
+    </tr>
+    <tr>
+        <td>Reserved</td><td th:text="${wish.isReservedByUserId}"></td>
+    </tr>
+    <tr>
+        <td>
+        <form action="/delete" method="post">
+            <input type="hidden" name="id" th:value="${wish.id}">
+            <button type="submit"> Delete</button>
+        </form>
+        <form action="/" method="get">
+            <button>Cancel</button>
+        </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
