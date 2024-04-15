@@ -39,9 +39,9 @@ public class WishListRepository {
         return jdbcTemplate.queryForObject(query, rowMapper, id);
     }
 
-    public void updateWishlist(String name) {
-        String query = "UPDATE wishlist SET Name = ? WHERE id = ?;";
-        jdbcTemplate.update(query, name);
+    public void updateWishlist(int id, String name) {
+        String query = "UPDATE wishlist SET name = ? WHERE id = ?;";
+        jdbcTemplate.update(query, name, id);
 
     }
     public List<Wishlist> getAllWishlists() {
