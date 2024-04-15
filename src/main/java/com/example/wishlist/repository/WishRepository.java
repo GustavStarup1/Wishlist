@@ -24,10 +24,7 @@ public class WishRepository {
     }
 
     public void updateWish(int id, String text, boolean isBought) {
-        String query = "UPDATE wish " +
-                "SET text = ?," +
-                "is_bought = ?" +
-                "WHERE id = ?;";
+        String query = "UPDATE wish SET text = ?, is_bought = ? WHERE id = ?;";
         jdbcTemplate.update(query,text, isBought,id);
     }
     public void delete(int id) {

@@ -46,12 +46,14 @@ public class WishController {
     @GetMapping("/Prepare_update")
     public String prepareWish(@RequestParam int id, Model model){
         model.addAttribute(wishService.prepareWish(id));
-        return "home/update";
+        return "home/prepare_update";
     }
     @PostMapping("/update")
     public String update(@RequestParam int id, @RequestParam boolean isBought, @RequestParam String text ) {
-       wishService.updateWish(id, isBought, text);
-       return "redirect:/";
+        Wish wish = wishService.getWish(id);
+        int wishlistId = wish.getWishlistId();
+        wishService.updateWish(id, isBought, text);
+       return "redirect:/wishlist/" + wishlistId;
     }
     @GetMapping("/markAsBought/{id}")
     public String markAsBought(@PathVariable("id") int id) {
