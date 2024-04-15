@@ -52,7 +52,7 @@ public class WishController {
     public String update(@RequestParam int id, @RequestParam boolean isBought, @RequestParam String text ) {
         Wish wish = wishService.getWish(id);
         int wishlistId = wish.getWishlistId();
-        wishService.updateWish(id, isBought, text);
+       wishService.updateWish(id, isBought, text);
        return "redirect:/wishlist/" + wishlistId;
     }
     @GetMapping("/markAsBought/{id}")
