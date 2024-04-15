@@ -14,6 +14,14 @@ private Date creationDate;
 
     }
 
+    public Wishlist(List<Wish> wishes, List<Wishlist> wishlists, int id, String name, Date creationDate) {
+        this.wishes = wishes;
+        this.wishlists = wishlists;
+        this.id = id;
+        this.name = name;
+        this.creationDate = creationDate;
+    }
+
     public List<Wishlist> getWishlists() {
         return wishlists;
     }
@@ -49,6 +57,10 @@ private Date creationDate;
         return id;
     }
 
+    public Wishlist(int id) {
+        this.id = id;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -56,7 +68,10 @@ private Date creationDate;
     @Override
     public String toString() {
         return "Wishlist{" +
-                "name='" + name + '\'' +
+                "wishes=" + wishes +
+                ", wishlists=" + wishlists +
+                ", id=" + id +
+                ", name='" + name + '\'' +
                 ", creationDate=" + creationDate +
                 '}';
     }

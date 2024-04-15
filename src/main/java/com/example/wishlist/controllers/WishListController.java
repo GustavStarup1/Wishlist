@@ -35,16 +35,16 @@ public class WishListController {
         return "home/showallwishes";
     }
 
-    @GetMapping("/delete/{id}")
-    public String confirmDelete(@PathVariable("id") int id, Model model) {
-        model.addAttribute("wish", wishlistService.getWish(id));
+    @GetMapping("/confirm_delete")
+    public String confirmDelete(@RequestParam int id, Model model) {
+        model.addAttribute("wishlist", wishlistService.getWishlist(id));
         return "home/confirm_delete";
     }
 
-    @PostMapping("/delete/{id}")
-    public String delete(@PathVariable("id") int id) {
+    @PostMapping("/delete")
+    public String delete(@RequestParam int id) {
         wishlistService.deleteWishlist(id);
-        return "redirect:/index";
+        return "redirect:/";
     }
 
     @GetMapping("/new")

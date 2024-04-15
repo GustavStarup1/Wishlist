@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/wishlist/wish")
 public class WishController {
     @Autowired
     private WishService wishService;

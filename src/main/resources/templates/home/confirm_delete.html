@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Confirm delete</title>
 </head>
 <body>
+<h1>Confirm delete</h1>
+<table>
 
+    <tr>
+        <td>ID</td><td th:text="${wishlist.id}"></td>
+    </tr>
+</table>
+<form action="/wishlist/delete" method="post">
+    <input type="hidden" name="id" th:value="${wishlist.id}">
+    <button type="submit">Delete</button>
+</form>
+<form action="/" method="get">
+    <button>Cancel</button>
+</form>
 </body>
 </html>
