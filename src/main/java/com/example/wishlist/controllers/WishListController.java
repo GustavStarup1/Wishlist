@@ -1,8 +1,10 @@
 package com.example.wishlist.controllers;
+import com.example.wishlist.model.User;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.service.WishListService;
 import com.example.wishlist.service.WishService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +21,13 @@ public class WishListController {
     @Autowired
     private WishService wishService;
 
-    /*viser alle ønsker lister*/
+    /*viser alle ønske lister*/
     @GetMapping("/")
-    public String showWishlists(Model model) {
-        List<Wishlist> wishlists = wishlistService.getAllWishlists();
+    public String showWishlists(Model model, HttpSession session) {
+        User user = (User)session.getAttribute("user");
+        // session.invalidate(); Logud endpoint
+        model.addAttribute("user",user);  // Kan bruges til at vise user på siden altså hvem der er logget ind
+        List<Wishlist> wishlists = wishlistService.getAllWishlistsByUserId(user.getId());
         model.addAttribute("wishlists", wishlists);
         return "home/wishlists";
     }

@@ -1,24 +1,27 @@
 package com.example.wishlist.model;
 
 public class User {
-    private int userId;
+    private int id;
     private String username;
     private String password;
     private String email;
 
-    public User(int userId, String username, String password, String email) {
-        this.userId = userId;
+    public User() {
+    }
+
+    public User(int id, String username, String password, String email) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getId() {
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -48,7 +51,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userId=" + userId +
+                "userId=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +

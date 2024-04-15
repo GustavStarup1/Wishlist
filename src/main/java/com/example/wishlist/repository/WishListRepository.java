@@ -49,4 +49,10 @@ public class WishListRepository {
         RowMapper rowMapper = new BeanPropertyRowMapper(Wishlist.class);
         return jdbcTemplate.query(query, rowMapper);
     }
+
+    public List<Wishlist> getAllWishlistsByUserId(int id) {
+        String query = "SELECT * FROM wishlist where user_id = ?";
+        RowMapper rowMapper = new BeanPropertyRowMapper(Wishlist.class);
+        return jdbcTemplate.query(query, rowMapper, id);
+    }
 }
