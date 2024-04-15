@@ -44,7 +44,7 @@ public class WishListController {
     @PostMapping("/delete")
     public String delete(@RequestParam int id) {
         wishlistService.deleteWishlist(id);
-        return "redirect:/";
+        return "redirect:/wishlist/";
     }
 
     @GetMapping("/new")

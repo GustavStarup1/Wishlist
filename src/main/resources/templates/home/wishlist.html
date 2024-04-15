@@ -19,9 +19,15 @@
         <td th:text="${wish.isReservedByUserId}"></td>
         <td th:text="${wish.isBought()}"></td>
         <td>
-            <form action="/confirm_delete" method="get">
+            <form action="/wishlist/wish/confirm_delete" method="get">
                 <input type="hidden" name="id" th:value="${wish.id}">
                 <button type="submit">Delete</button>
+            </form>
+        </td>
+        <td>
+            <form action="/wishlist/wish/Prepare_update" method="get">
+                <input type="hidden" name="id" th:value="${wish.id}">
+                <button type="submit">Update</button>
             </form>
         </td>
     </tr>

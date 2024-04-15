@@ -26,7 +26,7 @@ public class WishController {
         Wish wish = wishService.getWish(id);
         int wishlistId = wish.getWishlistId();
         wishService.delete(id);
-        return "redirect:/wishlist/wish/" + wishlistId; /*sender tilbage til ønskelisten man sletter ønske fra*/
+        return "redirect:/wishlist/" + wishlistId; /*sender tilbage til ønskelisten man sletter ønske fra*/
     }
 
     @GetMapping("/{id}/new_wish")
