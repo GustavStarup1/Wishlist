@@ -54,11 +54,11 @@ public class WishListController {
     @PostMapping("/insert")
     public String insert(@RequestParam String name ) {
         wishlistService.create(name);
-        return "redirect:/";
+        return "redirect:/wishlist/";
     }
 
      @PostMapping("/update/{id}")
-    public String update(@PathVariable("name") String name){
+    public String update(@PathVariable("id") String name){
         wishlistService.update(name);
         return "redirect:/index";
     }

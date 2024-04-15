@@ -24,10 +24,10 @@ public class WishController {
     @PostMapping("/delete")
     public String delete(@RequestParam ("id") int id) {
         wishService.delete(id);
-        return "redirect:/";
+        return "redirect:/wishlist/wish/";
     }
 
-    @GetMapping("/wishlist/{id}/new_wish")
+    @GetMapping("/{id}/new_wish")
     public String newWish(@PathVariable("id") int wishlistId, Model model){ /*modtager id'et fra wishlists viewet og sætter ind i modellem*/
         Wish wish = new Wish();
         wish.setWishlistId(wishlistId);
@@ -38,7 +38,7 @@ public class WishController {
     @PostMapping("/insert")
     public String insert(@RequestParam int wishlistId,@RequestParam String name, @RequestParam String text, @RequestParam double price, @RequestParam String link) {
         wishService.createWish(wishlistId, name, text, price, link);
-        return "redirect:/";
+        return "redirect:/wishlist/" + wishlistId;
     }
 
     @GetMapping("/Prepare_update")
