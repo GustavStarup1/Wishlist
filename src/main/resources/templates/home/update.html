@@ -2,9 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Update</title>
+
 </head>
 <body>
-
+<h1>Update Wish</h1>
+<form action="/wishlist/wish/update" method="post">
+    <table>
+        <tr>
+            <td>Id:</td>
+            <td><input type="text" name="id" th:value="${wish.id}" readonly></td>
+        </tr>
+        <tr>
+            <td>IsBought:</td>
+            <td><input type="text" name="isBought" th:value="${wish.isBought}"></td>
+        </tr>
+        <tr>
+            <td>Text:</td>
+            <td><input type="text" name="text" th:value="${wish.text}"></td>
+        </tr>
+    </table>
+    <input type="hidden" name="id" th:value="${wish.id}">
+    <button type="submit">Update</button>
+    <button type="button" onclick="window.location.href='/'">Delete</button>
+</form>
 </body>
 </html>
