@@ -34,14 +34,14 @@ public class WishListService {
         wishlistRepository.updateWishlist(name);
     }
 
-    public Object prepareUpdate(int id) {
+    public Wishlist prepareUpdate(int id) {
        return wishlistRepository.getWishlist(id);
     }
     public List<Wishlist> getAllWishlists() {
         return wishlistRepository.getAllWishlists();
     }
 
-    public Object getWishlist(int id) {
+    public Wishlist getWishlist(int id) {
        return wishlistRepository.getWishlist(id);
     }
 
