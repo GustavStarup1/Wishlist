@@ -28,9 +28,9 @@ public class WishListRepository {
     }
 
 
-    public void createWishlist(String name) {
-        String query = "INSERT INTO wishlist(name)" + "VALUES (?);";
-        jdbcTemplate.update(query, name);
+    public void createWishlist(String name, int id) {
+        String query = "INSERT INTO wishlist(name, user_id)" + "VALUES (?, ?);";
+        jdbcTemplate.update(query, name, id);
     }
 
     public Wishlist getWishlist(int id) {

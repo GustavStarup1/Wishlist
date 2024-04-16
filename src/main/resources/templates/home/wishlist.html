@@ -3,13 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <title>Wishlist</title>
+    <style>
+        /* Add magical styles */
+        body {
+            background-color: #f7e1ff; /* Magical purple */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        h1 {
+            background-color: #ffd3f7; /* Light pink */
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ff73c0; /* Sparkling pink */
+            margin-bottom: 20px;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd; /* Light gray */
+            text-align: left;
+        }
+
+        th {
+            background-color: #ffd3f7; /* Light pink */
+        }
+
+        tr:hover {
+            background-color: #f9f9f9; /* Light gray */
+        }
+
+        button[type="submit"] {
+            background-color: #ff73c0; /* Sparkling pink */
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #ff9ee0; /* Lighter pink */
+        }
+
+        button[type="button"] {
+            background-color: #ff73c0; /* Sparkling pink */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        button[type="button"]:hover {
+            background-color: #ff9ee0; /* Lighter pink */
+        }
+    </style>
 </head>
 <body>
 <div th:insert="~{home/fragments/navbar::navbar}"></div>
 <h1>Your Wishes</h1>
 <table>
     <tr>
-        <th>Name</th> <th>Description</th> <th>Price</th> <th>Link</th> <th>Reserved</th> <th>Bought</th> <th>Delete</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Link</th>
+        <th>Reserved</th>
+        <th>Bought</th>
+        <th>Delete</th>
+        <th>Update</th>
     </tr>
     <tr th:each="wish : ${wishes}">
         <td th:text="${wish.name}"></td>
@@ -31,8 +110,6 @@
             </form>
         </td>
     </tr>
-
-
 </table>
 <a th:href="@{/wishlist/wish/{id}/new_wish(id=${wishlist.id})}">
     <button type="button">New wish</button>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>New Wish</title>
+    <title>Create your own wishlist</title>
     <style>
         /* Add magical styles */
         body {
@@ -22,69 +22,65 @@
             margin-bottom: 20px;
         }
 
-        form {
-            background-color: #ffd3f7; /* Light pink */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
-            padding: 20px;
+        table {
             margin: 0 auto;
         }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
+        form {
+            background-color: #ffd3f7; /* Light pink */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: right;
         }
 
         input[type="text"] {
             width: calc(100% - 20px);
-            padding: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ff73c0; /* Sparkling pink */
             border-radius: 5px;
-            border: 1px solid #ccc;
-            margin-bottom: 10px;
+            font-size: 16px;
         }
 
-        button[type="submit"] {
+        button[type="submit"],
+        button {
             background-color: #ff73c0; /* Sparkling pink */
             color: #fff;
             border: none;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 18px;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            display: block;
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        button[type="submit"]:hover {
+        button[type="submit"]:hover,
+        button:hover {
             background-color: #ff9ee0; /* Lighter pink */
         }
     </style>
 </head>
 <body>
-<h1>Create wish</h1>
-<form action="/wishlist/wish/insert" method="post">
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name">
-    </div>
-    <div>
-        <label for="text">Text:</label>
-        <input type="text" name="text" id="text">
-    </div>
-    <div>
-        <label for="price">Price:</label>
-        <input type="text" name="price" id="price">
-    </div>
-    <div>
-        <label for="link">Link:</label>
-        <input type="text" name="link" id="link">
-    </div>
-    <input type="hidden" name="wishlistId" th:value="${wish.wishlistId}">
-    <button type="submit">Create</button>
-</form>
+<h1>Create Wishlist</h1>
+<table>
+    <tr>
+        <form action="/wishlist/insert" method="post">
+
+            <td>Name</td><td><input type="text" name="name"></td>
+            <br>
+            <button type="submit">Insert</button>
+        </form>
+        <form action="/" method="get">
+            <button>Cancel</button>
+        </form>
+    </tr>
+</table>
 </body>
 </html>

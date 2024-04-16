@@ -52,13 +52,14 @@ public class WishListController {
         return "redirect:/wishlist/";
     }
 
-    @GetMapping("/new")
+    @GetMapping("/new_wishlist")
     public String insert(){
-        return "home/new";
+        return "home/new_wishlist";
     }
     @PostMapping("/insert")
-    public String insert(@RequestParam String name ) {
-        wishlistService.create(name);
+    public String insert(@RequestParam String name,HttpSession session ) {
+        User user = (User)session.getAttribute("user");
+        wishlistService.create(name, user.getId());
         return "redirect:/wishlist/";
     }
 
