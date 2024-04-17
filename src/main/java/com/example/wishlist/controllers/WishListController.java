@@ -25,11 +25,16 @@ public class WishListController {
     @GetMapping("/")
     public String showWishlists(Model model, HttpSession session) {
         User user = (User)session.getAttribute("user");
-        // session.invalidate(); Logud endpoint
-        model.addAttribute("user",user);  // Kan bruges til at vise user på siden altså hvem der er logget ind
-        List<Wishlist> wishlists = wishlistService.getAllWishlistsByUserId(user.getId());
-        model.addAttribute("wishlists", wishlists);
-        return "home/wishlists";
+        if (user!= null) {
+            model.addAttribute("user", user);  // Kan bruges til at vise user på siden altså hvem der er logget ind
+            List<Wishlist> wishlists = wishlistService.getAllWishlistsByUserId(user.getId());
+            model.addAttribute("wishlists", wishlists);
+            return "home/wishlists";
+        }else {
+            return "redirect:/login";
+        }
+
+
     }
 
 // shows all wishes
@@ -77,7 +82,11 @@ public class WishListController {
 
     /*viser valgt wishlist*/
     @GetMapping("/{id}")
-    public String wishlist(@PathVariable("id") int id, Model model) {
+    public String wishlist(@PathVariable("id") int id, Model model, HttpSession session) {
+        User user = (User)session.getAttribute("user");
+        model.addAttribute("user", user);
+        int userId = wishlistService.getUserIdByWishlistId(id);
+        model.addAttribute("userId", userId);
         model.addAttribute(wishlistService.getWishlist(id));
         List<Wish> wishes = wishService.getWishesByWishListId(id);
         model.addAttribute("wishes", wishes);

@@ -1,4 +1,5 @@
 package com.example.wishlist.repository;
+import com.example.wishlist.model.User;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +55,9 @@ public class WishListRepository {
         String query = "SELECT * FROM wishlist where user_id = ?";
         RowMapper rowMapper = new BeanPropertyRowMapper(Wishlist.class);
         return jdbcTemplate.query(query, rowMapper, id);
+    }
+    public int getUserIdByWishlistId(int id) {
+    String query = "SELECT user_id FROM wishlist WHERE id = ?;";
+    return jdbcTemplate.queryForObject(query, Integer.class, id);
     }
 }

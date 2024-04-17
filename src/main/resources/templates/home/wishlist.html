@@ -123,11 +123,14 @@
         <td th:text="${wish.link}"></td>
         <td th:text="${wish.isReservedByUserId}"></td>
         <td th:text="${wish.isBought()}"></td>
-        <td>
+        <td th:if="${user!=null && user.id==userId}">
             <form action="/wishlist/wish/confirm_delete" method="get">
                 <input type="hidden" name="id" th:value="${wish.id}">
                 <button type="submit">Delete</button>
             </form>
+        </td>
+        <td th:unless="${user!=null && user.id==userId}">
+                <button type="submit">Not you!</button>
         </td>
         <td>
             <form action="/wishlist/wish/Prepare_update" method="get">
