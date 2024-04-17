@@ -33,8 +33,8 @@ public class WishListService {
         wishlistRepository.createWishlist(text, id);
     }
 
-    public void update(String name) {
-        wishlistRepository.updateWishlist(name);
+    public void update(int id, String name) {
+        wishlistRepository.updateWishlist(id, name);
     }
 
     public Wishlist prepareUpdate(int id) {

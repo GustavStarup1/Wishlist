@@ -63,16 +63,16 @@ public class WishListController {
         return "redirect:/wishlist/";
     }
 
-     @PostMapping("/update/{id}")
-    public String update(@PathVariable("id") String name){
-        wishlistService.update(name);
-        return "redirect:/index";
+    @PostMapping("/update/{id}")
+    public String update(@PathVariable("id") int id, @RequestParam String name){
+        wishlistService.update(id, name);
+        return "redirect:/wishlist/";
     }
 
     @GetMapping("/prepare_update")
     public String prepareUpdate(@RequestParam int id, Model model) {
         model.addAttribute(wishlistService.prepareUpdate(id));
-        return "home/update";
+        return "home/prepare_update_wishlist";
     }
 
     /*viser valgt wishlist*/
