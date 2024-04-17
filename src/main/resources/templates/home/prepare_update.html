@@ -3,7 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Update</title>
+    <style>
+        /* Add magical styles */
+        body {
+            background-color: #f7e1ff; /* Magical purple */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+        }
 
+        h1 {
+            background-color: #ffd3f7; /* Light pink */
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ff73c0; /* Sparkling pink */
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffd3f7; /* Light pink */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        td, th {
+            padding: 10px;
+            border-bottom: 1px solid #ddd; /* Light gray */
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"],
+        button[type="button"] {
+            background-color: #ff73c0; /* Sparkling pink */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover,
+        button[type="button"]:hover {
+            background-color: #ff9ee0; /* Lighter pink */
+        }
+    </style>
 </head>
 <body>
 <h1>Update Wish</h1>
@@ -24,7 +87,7 @@
     </table>
     <input type="hidden" name="id" th:value="${wish.id}">
     <button type="submit">Update</button>
-    <button type="button" onclick="window.location.href='/'">Delete</button>
+    <button type="button" onclick="window.location.href='/'">Cancel</button>
 </form>
 </body>
 </html>

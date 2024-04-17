@@ -3,21 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>Confirm delete</title>
+    <style>
+        /* Add magical styles */
+        body {
+            background-color: #f7e1ff; /* Magical purple */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .confirm-container {
+            background-color: #ffd3f7; /* Light pink */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 80%;
+        }
+
+        h1 {
+            color: #ff73c0; /* Sparkling pink */
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table td {
+            padding: 10px;
+            border-bottom: 1px solid #fff; /* White */
+        }
+
+        table td:first-child {
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #ff73c0; /* Sparkling pink */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #ff9ee0; /* Lighter pink */
+        }
+    </style>
 </head>
 <body>
-<h1>Confirm delete</h1>
-<table>
-
-    <tr>
-        <td>ID</td><td th:text="${wishlist.id}"></td>
-    </tr>
-</table>
-<form action="/wishlist/delete" method="post">
-    <input type="hidden" name="id" th:value="${wishlist.id}">
-    <button type="submit">Delete</button>
-</form>
-<form action="/" method="get">
-    <button>Cancel</button>
-</form>
+<div class="confirm-container">
+    <h1>Confirm delete</h1>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td th:text="${wishlist.name}"></td>
+        </tr>
+        <tr>
+            <td>ID</td>
+            <td th:text="${wishlist.id}"></td>
+        </tr>
+    </table>
+    <form action="/wishlist/delete" method="post">
+        <input type="hidden" name="id" th:value="${wishlist.id}">
+        <button type="submit">Delete</button>
+    </form>
+    <form action="/" method="get">
+        <button>Cancel</button>
+    </form>
+</div>
 </body>
 </html>

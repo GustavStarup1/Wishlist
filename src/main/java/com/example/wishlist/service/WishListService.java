@@ -29,8 +29,8 @@ public class WishListService {
         wishlistRepository.deleteWishlist(id);
     }
 
-    public void create(String text) {
-        wishlistRepository.createWishlist(text);
+    public void create(String text, int id) {
+        wishlistRepository.createWishlist(text, id);
     }
 
     public void update(int id, String name) {
