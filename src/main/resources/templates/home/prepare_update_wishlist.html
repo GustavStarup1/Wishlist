@@ -3,7 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Update</title>
+    <style>
+        /* Add magical styles */
+        body {
+            background-color: #f7e1ff; /* Magical purple */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+        }
 
+        h1 {
+            background-color: #ffd3f7; /* Light pink */
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ff73c0; /* Sparkling pink */
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffd3f7; /* Light pink */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ff73c0; /* Sparkling pink */
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button[type="submit"],
+        button {
+            background-color: #ff73c0; /* Sparkling pink */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        button[type="submit"]:hover,
+        button:hover {
+            background-color: #ff9ee0; /* Lighter pink */
+        }
+    </style>
 </head>
 <body>
 <h1>Update Wishlist</h1>
@@ -13,12 +73,11 @@
         <input type="text" id="name" name="name" th:value="${wishlist.name}">
     </div>
     <input type="hidden" name="id" th:value="${wishlist.id}">
-        <input type="hidden" name="id" th:value="${wishlist.id}">
     <div>
         <button type="submit">Insert</button>
-        <button form="cancel" type="submit">Cancel</button> <!--ligger den inde i form med submit knap, men referer tilbage til cancel form via id "cancel"-->
+        <button form="cancel" type="submit">Cancel</button>
     </div>
 </form>
-<form action="/" method="get" id="cancel"></form> <!
+<form action="/" method="get" id="cancel"></form>
 </body>
 </html>
