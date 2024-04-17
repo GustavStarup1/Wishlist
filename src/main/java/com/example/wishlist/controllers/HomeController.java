@@ -1,8 +1,10 @@
 package com.example.wishlist.controllers;
+import com.example.wishlist.model.User;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.service.UserService;
 import com.example.wishlist.service.WishListService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Controller;
@@ -25,7 +27,9 @@ public class HomeController {
     }*/
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, HttpSession session) {
+        User user = (User)session.getAttribute("user");
+        model.addAttribute("user", user);
         List<Wish> wishes = wishlistService.getAllWishes();
         model.addAttribute("wishes", wishes);
         return "home/index";

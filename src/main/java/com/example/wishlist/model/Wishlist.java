@@ -7,6 +7,7 @@ public class Wishlist {
 private List<Wish> wishes;
 private List<Wishlist> wishlists;
 private int id;
+private int userId;
 private String name;
 private Date creationDate;
 
