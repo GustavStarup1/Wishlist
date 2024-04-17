@@ -1,10 +1,10 @@
-
-    /* Add magical styles */
 body {
     background-color: #f7e1ff; /* Magical purple */
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    position: relative;
+    min-height: 100vh;
 }
 
 header {
@@ -18,14 +18,14 @@ header h1 {
     color: #ff73c0; /* Sparkling pink */
     font-size: 36px;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); /* Magical glow */
+    margin: 0;
 }
 
-nav{
+nav {
     background-color: #ff9ee0; /* Lighter pink */
     color: #fff;
     padding: 10px;
     text-align: center;
-
 }
 
 nav ul {
@@ -53,6 +53,23 @@ nav ul li a:hover {
 main {
     padding: 20px;
     text-align: center;
+    margin-bottom: 100px; /* Add margin to accommodate the footer */
+}
+
+a {
+    background-color: #ff73c0; /* Sparkling pink */
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+a:hover {
+    background-color: #ff9ee0; /* Lighter pink */
 }
 
 footer {
@@ -61,4 +78,86 @@ footer {
     padding: 20px;
     text-align: center;
     border-top: 2px solid #ffd3f7; /* Light pink */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+body {
+    background-color: #f7e1ff; /* Magical purple */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #ffd3f7; /* Light pink */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #ff73c0; /* Sparkling pink */
+}
+
+header h1 {
+    color: #ff73c0; /* Sparkling pink */
+    font-size: 36px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); /* Magical glow */
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+form {
+    background-color: #ffd3f7; /* Light pink */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ff73c0; /* Sparkling pink */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ff73c0; /* Sparkling pink */
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #ff73c0; /* Sparkling pink */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #ff9ee0; /* Lighter pink */
+}
+
+footer {
+    background-color: #ff73c0; /* Sparkling pink */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid #ffd3f7; /* Light pink */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
