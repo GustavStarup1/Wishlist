@@ -154,6 +154,12 @@
                     <button type="submit">Delete</button>
                 </form>
             </td>
+            <td>
+                <form action="/wishlist/prepare_update" method="get">
+                    <input type="hidden" name="id" th:value="${wishlist.id}">
+                    <button type="submit">Update</button>
+                </form>
+            </td>
         </tr>
     </table>
     <a th:href="@{/wishlist/new_wishlist}">
