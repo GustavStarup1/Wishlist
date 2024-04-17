@@ -42,7 +42,7 @@ package com.example.wishlist.model;
             return isBought;
         }
 
-        public void setBought(boolean bought) {
+        public void setIsBought(boolean bought) {
             isBought = bought;
         }
 

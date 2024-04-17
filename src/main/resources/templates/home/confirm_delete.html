@@ -79,7 +79,7 @@
         <input type="hidden" name="id" th:value="${wishlist.id}">
         <button type="submit">Delete</button>
     </form>
-    <form action="/" method="get">
+    <form th:action="@{/wishlist/}" method="get">
         <button>Cancel</button>
     </form>
 </div>

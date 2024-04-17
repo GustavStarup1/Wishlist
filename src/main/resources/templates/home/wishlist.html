@@ -122,7 +122,7 @@
         <td th:text="${wish.price}"></td>
         <td th:text="${wish.link}"></td>
         <td th:text="${wish.isReservedByUserId}"></td>
-        <td th:text="${wish.isBought()}"></td>
+        <td th:text="${wish.isBought}"></td>
         <td>
             <form action="/wishlist/wish/confirm_delete" method="get">
                 <input type="hidden" name="id" th:value="${wish.id}">

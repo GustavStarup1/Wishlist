@@ -22,7 +22,7 @@
             margin-bottom: 20px;
         }
 
-        form {
+        form.update {
             background-color: #ffd3f7; /* Light pink */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -70,7 +70,7 @@
 </head>
 <body>
 <h1>Update Wish</h1>
-<form action="/wishlist/wish/update" method="post">
+<form class="update" action="/wishlist/wish/update" method="post">
     <table>
         <tr>
             <td>Id:</td>
@@ -78,7 +78,14 @@
         </tr>
         <tr>
             <td>IsBought:</td>
-            <td><input type="text" name="isBought" th:value="${wish.isBought}"></td>
+            <td>
+                <input type="radio" id="isBoughtFalse" name="isBought" value="false" th:checked="${wish.isBought == false}">
+                <label for="isBoughtFalse">False</label>
+            </td>
+            <td>
+                <input type="radio" id="isBoughtTrue" name="isBought" value="true" th:checked="${wish.isBought == true}">
+                <label for="isBoughtTrue">True</label>
+            </td>
         </tr>
         <tr>
             <td>Text:</td>
@@ -87,7 +94,8 @@
     </table>
     <input type="hidden" name="id" th:value="${wish.id}">
     <button type="submit">Update</button>
-    <button type="button" onclick="window.location.href='/'">Cancel</button>
+    <button type="submit" form="cancel">Cancel</button>
 </form>
+<form id="cancel" th:action="@{/wishlist/{id}(id=${wish.wishlistId})}" method="get"></form>
 </body>
 </html>

@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.*;
 public class WishController {
     @Autowired
     private WishService wishService;
-    @Autowired
-    private WishListService wishListService;
 
     @GetMapping("/confirm_delete")
     public String confirmDelete(@RequestParam int id, Model model){
@@ -50,6 +48,7 @@ public class WishController {
     }
     @PostMapping("/update")
     public String update(@RequestParam int id, @RequestParam boolean isBought, @RequestParam String text ) {
+        System.out.println("IsBought: " + isBought);
         Wish wish = wishService.getWish(id);
         int wishlistId = wish.getWishlistId();
        wishService.updateWish(id, isBought, text);

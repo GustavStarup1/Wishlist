@@ -32,13 +32,6 @@ public class WishListController {
         return "home/wishlists";
     }
 
-// shows all wishes
-    @GetMapping("/show")
-    public String showAllWishes(Model model) {
-        List<Wish> wishes = wishlistService.getAllWishes();
-        model.addAttribute("wishes", wishes);
-        return "home/showallwishes";
-    }
 
     @GetMapping("/confirm_delete")
     public String confirmDelete(@RequestParam int id, Model model) {
