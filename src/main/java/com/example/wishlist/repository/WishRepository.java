@@ -23,9 +23,14 @@ public class WishRepository {
         return jdbcTemplate.queryForObject(query, rowMapper, id);
     }
 
-    public void updateWish(String text, boolean isBought, int id) {
-        String query = "UPDATE wish SET text = ?,  is_bought = ? WHERE id = ?;";
-        jdbcTemplate.update(query,text, isBought,id);
+    public void updateWish(int id, String name, String text, double price, String link, boolean isBought) {
+        System.out.println("price: " + price);
+        System.out.println("desc: " + text);
+        System.out.println("name: " + name);
+        System.out.println("link: " + link);
+        System.out.println("isBought: " + isBought);
+        String query = "UPDATE wish SET name = ?, text = ?, price = ?, link = ?,  is_bought = ? WHERE id = ?;";
+        jdbcTemplate.update(query,id, name, text, price, link, isBought);
     }
     public void delete(int id) {
         String query = "DELETE FROM wish Where id = ?";

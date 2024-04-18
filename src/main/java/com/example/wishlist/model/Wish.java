@@ -46,6 +46,10 @@ package com.example.wishlist.model;
             isBought = bought;
         }
 
+        /*public void setBought(boolean bought) {
+            isBought = bought;
+        }*/
+
         public String getName() {
             return name;
         }

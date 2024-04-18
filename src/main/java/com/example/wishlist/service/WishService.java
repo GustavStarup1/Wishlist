@@ -23,8 +23,8 @@ public class WishService {
         wishRepository.createWish(wishlistId, name, wishText, price, link);
     }
 
-    public void updateWish(int id, boolean isBought, String text){
-        wishRepository.updateWish(text, isBought, id);
+    public void updateWish(int id, String name, String text, double price, String link, boolean isBought){
+        wishRepository.updateWish(id, name, text, price, link, isBought);
     }
 
     public Wish prepareWish(int id) {

@@ -47,11 +47,13 @@ public class WishController {
         return "home/prepare_update";
     }
     @PostMapping("/update")
-    public String update(@RequestParam int id, @RequestParam boolean isBought, @RequestParam String text ) {
+    public String update(@RequestParam int id, @RequestParam String name, @RequestParam String text, @RequestParam double price, @RequestParam String link, @RequestParam boolean isBought) {
         System.out.println("IsBought: " + isBought);
         Wish wish = wishService.getWish(id);
         int wishlistId = wish.getWishlistId();
-       wishService.updateWish(id, isBought, text);
+        System.out.println(wish.getPrice());
+        wishService.updateWish(id, name, text, price, link, isBought);
+
        return "redirect:/wishlist/" + wishlistId;
     }
     @GetMapping("/markAsBought/{id}")
