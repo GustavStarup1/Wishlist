@@ -30,8 +30,9 @@ public class WishRepository {
         System.out.println("link: " + link);
         System.out.println("isBought: " + isBought);
         String query = "UPDATE wish SET name = ?, text = ?, price = ?, link = ?,  is_bought = ? WHERE id = ?;";
-        jdbcTemplate.update(query,id, name, text, price, link, isBought);
+        jdbcTemplate.update(query, name, text, price, link, isBought, id);
     }
+
     public void delete(int id) {
         String query = "DELETE FROM wish Where id = ?";
         jdbcTemplate.update(query, id);
