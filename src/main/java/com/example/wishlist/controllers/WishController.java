@@ -48,7 +48,6 @@ public class WishController {
     }
     @PostMapping("/update")
     public String update(@RequestParam int id, @RequestParam String name, @RequestParam String text, @RequestParam double price, @RequestParam String link, @RequestParam boolean isBought) {
-        System.out.println("IsBought: " + isBought);
         Wish wish = wishService.getWish(id);
         int wishlistId = wish.getWishlistId();
         System.out.println(wish.getPrice());
