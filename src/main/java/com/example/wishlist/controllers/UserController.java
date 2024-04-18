@@ -42,4 +42,13 @@ public class UserController {
         session.invalidate();
         return "redirect:/";
     }
+    @GetMapping("/create_login")
+    public String createLogin() {
+        return "home/login_creation";
+    }
+    @PostMapping("/process_login_creation")
+    public String processLoginCreation(@RequestParam String username, @RequestParam String password, @RequestParam String email, HttpSession session, Model model) {
+    userService.create(username, password, email);
+    return "redirect:/wishlist/";
+    }
 }
