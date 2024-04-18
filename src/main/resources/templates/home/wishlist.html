@@ -5,6 +5,49 @@
     <title>Wishlist</title>
     <style>
         /* Add magical styles */
+        header {
+            background-color: #ffd3f7; /* Light pink */
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ff73c0; /* Sparkling pink */
+        }
+
+        header h1 {
+            color: #ff73c0; /* Sparkling pink */
+            font-size: 36px;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); /* Magical glow */
+            margin: 0;
+        }
+
+        nav {
+            background-color: #ff9ee0; /* Lighter pink */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease; /* Magical transition */
+        }
+
+        nav ul li a:hover {
+            transform: scale(1.1); /* Enchantment on hover */
+        }
+
         body {
             background-color: #f7e1ff; /* Magical purple */
             font-family: 'Arial', sans-serif;
@@ -12,6 +55,7 @@
             padding: 0;
             position: relative;
             min-height: 100vh;
+            align-items: center;
         }
 
         h1 {
@@ -57,6 +101,12 @@
             background-color: #ff9ee0; /* Lighter pink */
         }
 
+
+        a {
+            text-decoration: none;
+            text-align: center;
+        }
+
         button[type="button"] {
             background-color: #ff73c0; /* Sparkling pink */
             color: #fff;
@@ -67,8 +117,12 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
             text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
+            margin-top: 20px; /* Add top margin */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            display: block;
+
         }
 
         button[type="button"]:hover {
@@ -94,7 +148,10 @@
     </style>
 </head>
 <body>
-<div th:insert="~{home/fragments/navbar::navbar}"></div>
+<header>
+    <div th:insert="~{home/fragments/navbar::navbar}"></div>
+</header>
+
 <h1>Your Wishes</h1>
 <div>
     <details>

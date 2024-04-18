@@ -73,23 +73,39 @@
 <form class="update" action="/wishlist/wish/update" method="post">
     <table>
         <tr>
-            <td>Id:</td>
-            <td><input type="text" name="id" th:value="${wish.id}" readonly></td>
+            <td>
+                <label for="name">Name:</label>
+                <input id="name" type="text" name="name" th:value="${wish.name}">
+            </td>
         </tr>
         <tr>
-            <td>IsBought:</td>
             <td>
+                <label for="description">Description:</label>
+                <input id="description" type="text" name="text" th:value="${wish.text}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="price">Price:</label>
+                <br>
+                <input id="price" type="number" name="price" th:value="${wish.price}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="link">Link:</label>
+                <input id="link" type="text" name="link" th:value="${wish.link}">
+            </td>
+        </tr>
+        <tr>
+
+            <td>
+                isBought:
                 <input type="radio" id="isBoughtFalse" name="isBought" value="false" th:checked="${wish.isBought == false}">
                 <label for="isBoughtFalse">False</label>
-            </td>
-            <td>
                 <input type="radio" id="isBoughtTrue" name="isBought" value="true" th:checked="${wish.isBought == true}">
                 <label for="isBoughtTrue">True</label>
             </td>
-        </tr>
-        <tr>
-            <td>Text:</td>
-            <td><input type="text" name="text" th:value="${wish.text}"></td>
         </tr>
     </table>
     <input type="hidden" name="id" th:value="${wish.id}">

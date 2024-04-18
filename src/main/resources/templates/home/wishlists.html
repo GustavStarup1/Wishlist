@@ -140,10 +140,9 @@
 <main>
     <table>
         <tr>
-            <th>ID</th><th>Name</th> <th>Creation Date</th><th>Delete</th><th>Update</th>
+            <th>Name</th> <th>Creation Date</th><th>Delete</th><th>Update</th>
         </tr>
         <tr th:each="wishlist : ${wishlists}">
-            <td th:text="${wishlist.id}"></td>
             <td>
                 <a th:href="@{/wishlist/{id}(id=${wishlist.id})}" th:text="${wishlist.name}"></a>
             </td>
