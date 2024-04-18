@@ -17,4 +17,9 @@ public class UserRepository {
         RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
         return jdbcTemplate.queryForObject(query, rowMapper, username, password);
     }
+
+    public void createLogin(String username, String password, String email) {
+        String query = "INSERT INTO user(username, password, email)" + "VALUES (?, ?, ?);";
+        jdbcTemplate.update(query, username, password, email);
+    }
 }
