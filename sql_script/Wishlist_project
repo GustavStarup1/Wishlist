@@ -1,0 +1,65 @@
+-- Slet alle eksisterende tabeller, hvis de findes
+
+DROP DATABASE IF EXISTS wishlist_project;
+CREATE DATABASE wishlist_project;
+USE wishlist_project;
+
+DROP TABLE IF EXISTS wish;
+DROP TABLE IF EXISTS wishlist;
+DROP TABLE IF EXISTS user;
+-- Opret tabel til brugere
+CREATE TABLE user (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- Opret tabel til ønskelister
+CREATE TABLE wishlist (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    Name VARCHAR(100) NOT NULL,
+    creation_date DATE NOT NULL,
+    CONSTRAINT fk_user_wishlist
+        FOREIGN KEY (user_id)
+        REFERENCES User(id)
+        ON DELETE CASCADE
+);
+
+-- Opret tabel til ønsker
+CREATE TABLE wish (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    wishlist_id INT,
+	name VARCHAR(255),
+    text VARCHAR(255),
+    price DECIMAL(10,2),
+    link VARCHAR(255),
+    is_bought BOOLEAN DEFAULT FALSE,
+    is_reserved_by_user_id VARCHAR(255),
+    CONSTRAINT fk_wishlist_wish
+        FOREIGN KEY (wishlist_id)
+        REFERENCES wishlist(id)
+        ON DELETE CASCADE
+);
+-- Indsæt brugere
+INSERT INTO user (username, password, email) VALUES
+('john_doe', 'password123', 'john@example.com'),
+('jane_smith', 'securepass', 'jane@example.com'),
+('sam_jones', 'letmein', 'sam@example.com');
+
+-- Indsæt ønskelister
+INSERT INTO wishlist ( user_id, name, creation_date) VALUES
+( 1, 'Birthday Wishes', '2024-04-10'),
+( 2, 'Christmas List', '2024-12-01'),
+( 3, 'Graduation Gifts', '2024-06-15');
+
+-- Indsæt ønsker
+INSERT INTO wish ( wishlist_id, name, text, price, link, is_bought, is_reserved_by_user_id) VALUES
+( 1, 'Smartwatch', 'Apple Watch Series 6', 399.99, 'https://www.apple.com/watch/', FALSE, NULL),
+( 1, 'Wireless Earbuds', 'AirPods Pro', 249.00, 'https://www.apple.com/airpods-pro/', FALSE, NULL),
+( 2, 'Gaming Console', 'PlayStation 5', 499.99, 'https://www.playstation.com/ps5/', FALSE, NULL),
+( 2, 'Smart Speaker', 'Amazon Echo', 99.99, 'https://www.amazon.com/echo/', FALSE, NULL),
+( 3, 'Laptop', 'MacBook Pro 13"', 1299.00, 'https://www.apple.com/macbook-pro-13/', FALSE, NULL),
+( 3, 'Digital Camera', 'Canon EOS Rebel T7', 399.00, 'https://www.usa.canon.com/eos-rebel-t7-kit', FALSE, NULL);
+
